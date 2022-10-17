@@ -12,7 +12,7 @@ initialize({
   serviceWorker: {
     url: isDevelopment
       ? "mockServiceWorker.js"
-      : "/lab-ds/mockServiceWorker.js",
+      : "/ignite-lab-design-system/mockServiceWorker.js",
   },
 });
 
