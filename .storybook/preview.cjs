@@ -4,8 +4,16 @@ import "../src/styles/global.css";
 
 import { initialize, mswDecorator } from "msw-storybook-addon";
 
+const isDevelopment = window.CONFIG_TYPE === "DEVELOPMENT";
+
+// Initialize MSW
 initialize({
-  onUnhandledRequest: 'bypass'
+  onUnhandledRequest: "bypass",
+  serviceWorker: {
+    url: isDevelopment
+      ? "mockServiceWorker.js"
+      : "/lab-ds/mockServiceWorker.js",
+  },
 });
 
 export const decorators = [mswDecorator];
@@ -19,6 +27,6 @@ export const parameters = {
     },
   },
   docs: {
-    theme: themes.dark
-  }
-}
+    theme: themes.dark,
+  },
+};
